@@ -1,3 +1,3 @@
 # Luciferbobo.github.io
-The page for resume.
+This page is for resume.
 
