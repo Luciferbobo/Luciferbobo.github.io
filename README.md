@@ -1,3 +1,3 @@
 # Luciferbobo.github.io
-This page is for curriculum vitae.
+This page is for my curriculum vitae.
 
