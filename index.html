@@ -150,8 +150,67 @@
     vertical-align: middle;
     }
 
-}
+    .work-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
+    .work-info {
+      max-width: 70%;
+    }
+
+    .work-title {
+      font-weight: bold;
+      display: block;
+    }
+
+    .work-date {
+      color: gray;
+      font-size: 14px;
+    }
+
+    .work-image {
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+
+    .work-image img {
+      width: 120px;
+      height: auto;
+    }
+
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .education-info {
+      max-width: 70%;
+    }
+
+    .education-title {
+      font-weight: bold;
+      display: block;
+    }
+
+    .education-date {
+      color: gray;
+      font-size: 14px;
+    }
+
+    .education-image {
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+
+    .education-image img {
+      width: 80px;
+      height: auto;
+    }
 
 </style>
 
@@ -214,77 +273,111 @@
 </div>
 </ul>
 
-
-<div id="Education" class='xtitle'  >Education</div>
+<div id="Education" class='xtitle'>Education</div>
 <div class="txt1">
-<ul class="Education" style="line-height: 2em">
-<li>University of California, Los Angeles (UCLA) <div style="float: right;">2023.09-2024.09</div> </li>
-Master of Artificial Intelligence Engineering
-<br>
-</ul>
-  
-<ul class="Education" style="line-height: 2em">
-<li>Southeast University (SEU) <div style="float: right;">2018.06-2022.06</div> </li>
-Bachelor of Computer Science and Technology
-<br>
-</ul>
+  <ul class="Education" style="line-height: 2em">
+
+    <li>
+      <div class="education-item">
+        <div class="education-info">
+          <span class="education-title">Master of Artificial Intelligence Engineering</span>
+          <span class="education-date">2023.09 - 2024.09</span>
+          <br>
+          <a target="_blank" href="https://www.ucla.edu/">University of California, Los Angeles (UCLA)</a>
+        </div>
+        <div class="education-image">
+          <img class="institution-logo" src="img/ucla.jpg" alt="UCLA Logo">
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="education-item">
+        <div class="education-info">
+          <span class="education-title">Bachelor of Computer Science and Technology</span>
+          <span class="education-date">2018.06 - 2022.06</span>
+          <br>
+          <a target="_blank" href="https://www.seu.edu.cn/english/">Southeast University (SEU)</a>
+        </div>
+        <div class="education-image">
+          <img class="institution-logo" src="img/SEU.png" alt="SEU Logo">
+        </div>
+      </div>
+    </li>
+
+  </ul>
 </div>
 
-<div id="Work" class='xtitle' >Work</div>
+<div id="Experience" class='xtitle'>Experience</div>
 <div class="txt1">
-
-
   <ul class="Work" style="line-height: 2em">
+
     <li>
-
-      Researcher<div style="float: right;">2024.11 - Now </div>
-        <br>
-      <a target="_blank" href="https://www.sensetime.com/en">SenseTime</a>
-        <img class="company-logo" src="img/sensetime.png" alt="SenseTime Logo" style="width: 110px; height: auto; margin-left: 340px;">
-      <br>
-      SenseTime Research | Video Generation
+      <div class="work-item">
+        <div class="work-info">
+          <span class="work-title">Researcher</span>
+          <span class="work-date">2024.11 - Now</span>
+          <br>
+          <a target="_blank" href="https://www.sensetime.com/en">SenseTime</a>
+          <br>
+          SenseTime Research | Video Generation
+        </div>
+        <div class="work-image">
+          <img class="company-logo" src="img/sensetime.png" alt="SenseTime Logo">
+        </div>
+      </div>
     </li>
-  </ul>
 
-
-
-    <ul class="Work" style="line-height: 2em">
-        <li>
-
-          3D Generation Engineer<div style="float: right;">2024.06 - 2024.09 </div>
-            <br>
-        <a target="_blank" href="https://futurewei.com/">Huawei</a>
-            <img class="company-logo" src="img/futurewei.png" alt="futurewei Logo" style="width: 120px; height: auto; margin-left: 360px;">
-        <br>
-
-        NNMC Group | 3D Generation, 3D Reconstruction
-        </li>
-    </ul>
-
-  <ul class="Work" style="line-height: 2em">
     <li>
-
-      Computer Vision Engineer<div style="float: right;">2022.07 - 2023.04 </div>
-        <br>
-      <a target="_blank" href="https://www.phigent.ai/en/">Phigent Robotics</a>
-        <img class="company-logo" src="img/phigent.png" alt="SenseTime Logo" style="width: 110px; height: auto; margin-left: 300px;">
-      <br>
-      FSD Group | NeRF, 3D Vision, Vehicles Classification
+      <div class="work-item">
+        <div class="work-info">
+          <span class="work-title">3D Generation Engineer</span>
+          <span class="work-date">2024.06 - 2024.09</span>
+          <br>
+          <a target="_blank" href="https://futurewei.com/">Huawei</a>
+          <br>
+          NNMC Group | 3D Generation, 3D Reconstruction
+        </div>
+        <div class="work-image">
+          <img class="company-logo" src="img/futurewei.png" alt="Futurewei Logo">
+        </div>
+      </div>
     </li>
-  </ul>
 
-   <ul class="Work" style="line-height: 2em">
     <li>
-
-      Research Intern<div style="float: right;">2021.11 - 2022.04 </div>
-        <br>
-      <a target="_blank" href="https://ailab.tencent.com/ailab/en/index">Tencent AI Lab </a>
-        <img class="company-logo" src="img/tencent2.svg" alt="tencent Logo" style="width: 120px; height: auto; margin-left: 312px;">
-      <br>
-      Vision Computing Center | Real-time Rendering, Monte Carlo Denoising, Low-level Vision
+      <div class="work-item">
+        <div class="work-info">
+          <span class="work-title">Computer Vision Engineer</span>
+          <span class="work-date">2022.07 - 2023.04</span>
+          <br>
+          <a target="_blank" href="https://www.phigent.ai/en/">Phigent Robotics</a>
+          <br>
+          FSD Group | NeRF, 3D Vision, Vehicles Classification
+        </div>
+        <div class="work-image">
+          <img class="company-logo" src="img/phigent.png" alt="Phigent Robotics Logo">
+        </div>
+      </div>
     </li>
-  </ul>
 
+    <li>
+      <div class="work-item">
+        <div class="work-info">
+          <span class="work-title">Research Intern</span>
+          <span class="work-date">2021.11 - 2022.04</span>
+          <br>
+          <a target="_blank" href="https://ailab.tencent.com/ailab/en/index">Tencent AI Lab</a>
+          <br>
+          Vision Computing Center | Real-time Rendering, Monte Carlo Denoising, Low-level Vision
+        </div>
+        <div class="work-image">
+          <img class="company-logo" src="img/tencent2.svg" alt="Tencent AI Lab Logo">
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
 
 
 
@@ -379,7 +472,7 @@ Bachelor of Computer Science and Technology
 
 
 <br>
-<div id="Side Game" class='xtitle' > Side Game <span style="color:#333;font-size: 14px; font-family: Helvetica, Arial, sans-serif; "> </span> </div> 
+<div id="Side Games" class='xtitle' > Side Games <span style="color:#333;font-size: 14px; font-family: Helvetica, Arial, sans-serif; "> </span> </div>
 <br>
 
 <div class="posts">
@@ -390,13 +483,13 @@ Bachelor of Computer Science and Technology
 
       <div class= "papertitle entry" >Marvel knowledge graph</div>
 <div class="entry">
-•Data: Chinese Wikipedia, Baidu Encyclopedia, Marvel Character relationship database
+•Data: Wikipedia, Baidu Encyclopedia, Marvel Character relationship database
 </div>
 <div class="entry">
-•Entity: 100+ Marvel characters
+•Attribute: Name, Gender, Team, Experience, etc
 </div>
 <div class="entry">
-•Attribute: Chinese/English name, gender, team, character experience, etc
+•Functionality: Word Cloud, Relationship Graph, Interactive Q&A System
 </div>
 <div class="entry">
 </div>
@@ -421,7 +514,7 @@ Bachelor of Computer Science and Technology
       <div class= "papertitle entry" >Playing flappybird with DQN</div>
 
       <div class="entry">
-Playing flappybird with Q-learning agent.
+Play flappybird with deep Q-learning agent.
  
 </div>
 
@@ -439,10 +532,10 @@ Playing flappybird with Q-learning agent.
 
       <img class= "teaser" src="img/G3.jpg">
 
-      <div class= "papertitle entry" >Merge SEU</div>
+      <div class= "papertitle entry" >Get SEU</div>
 
       <div class="entry">
-A university version of merging watermelon. Based on CoCos2d.
+Combine identical universities to create an even bigger one!
 </div>
 
 
@@ -468,9 +561,10 @@ A university version of merging watermelon. Based on CoCos2d.
 <li>🎮 &nbsp;&nbsp;Love palying 3A games. Stay active on Steam. </li>
 
 <li>🎨 &nbsp;&nbsp;Tech otaku. ヾ(≧▽≦*)o Acid fan of anime and manga. qwq </li>
-
-<li>🌎 &nbsp;&nbsp;On my way exploring the world—visited 19 countries so far. </li>
-
+    
+<!--
+<li>🌎 On my way exploring the world—visited countries so far: 19. </li>
+-->
 
 </ul>
 </ul>
