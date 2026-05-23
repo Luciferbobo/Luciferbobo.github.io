@@ -1,28 +1,219 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Boyu Zhang">
     <title>Boyu Zhang</title>
-    <link rel="icon" href="img/bobo.ico" type="image/x-icon">  
-    <link rel="stylesheet" href="css/style.css" />
-    <meta charset="utf-8" />
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
-    <meta name="bg" content="Resume">
-    <meta property="bg" content="Resume" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />   
-    <meta name="author" content="Boyu Zhang" />
-    
+    <link rel="icon" href="img/bobo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      body {
+        font-weight: 200;
+        font-size: 16px;
+        border-top: 3px solid rgb(0, 0, 0);
+      }
+      b { color: rgb(0, 0, 0); }
+      .posts { font-size: 14px; }
+      .post { border-left: 3px solid #111; }
+      .xtitle {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        margin: 40px 0 14px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ececec;
+        letter-spacing: 0.3px;
+        color: rgb(0, 0, 0);
+        width: 100%;
+      }
+      .xtitle::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 18px;
+        background: #111;
+        margin-right: 10px;
+        vertical-align: -2px;
+        border-radius: 2px;
+      }
+      .header-card + br + .xtitle { margin-top: 24px; }
+      .xtitle + br { display: none; }
+      #GenAI::before { display: none; }
+      .posts .teaser {
+        width: 160px;
+        height: 120px;
+        float: left;
+        margin: 0 0 10px 10px;
+      }
+      a {
+        color: #111;
+        position: relative;
+      }
+      a:after {
+        content: '';
+        position: absolute;
+        top: 60%;
+        left: -0.1em;
+        right: -0.1em;
+        bottom: 0;
+        transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+        background-color: rgba(51, 255, 153, 0.3);
+      }
+      a:hover { color: rgb(0, 0, 0); }
+      a:hover:after {
+        color: rgb(0, 0, 0);
+        top: 0%;
+      }
+      .entry {
+        position: relative;
+        top: 0;
+        left: 20px;
+        margin: 5px auto 0;
+        width: 100%;
+      }
+      .txt1 {
+        position: relative;
+        top: 0;
+        left: -25px;
+        margin: 5px auto 0;
+        width: 100%;
+      }
+      .txtmisc {
+        position: relative;
+        margin: 5px auto 0;
+        width: 100%;
+      }
+      .posts > .post {
+        border-bottom: 0;
+        padding: 10px 0 0;
+        margin: 0 auto 10px;
+        width: 100%;
+      }
+      .papertitle {
+        margin: 0 auto;
+        font-weight: 600;
+        font-size: 16px;
+        font-style: italic;
+        width: 100%;
+      }
+      .entry b { font-weight: 600; }
+      #Biography + .txt1 ul {
+        list-style: none;
+      }
+      .company-logo {
+        width: 60px;
+        height: auto;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+      .work-item,
+      .education-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .work-info,
+      .education-info { max-width: 70%; }
+      .work-title,
+      .education-title {
+        font-weight: bold;
+        display: block;
+      }
+      .work-date,
+      .education-date {
+        color: gray;
+        font-size: 14px;
+      }
+      .work-image,
+      .education-image {
+        flex-shrink: 0;
+        margin-left: 20px;
+      }
+      .work-image img { width: 120px; height: auto; }
+      .education-image img { width: 80px; height: auto; }
+      .header-card {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .header-card .portrait {
+        width: 100px;
+        height: auto;
+      }
+      .header-card .name {
+        font-size: 24px;
+        font-weight: 300;
+      }
+      .header-card .links {
+        font-size: 0.85em;
+      }
+      @media (max-width: 600px) {
+        .work-item,
+        .education-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .work-info,
+        .education-info { max-width: 100%; }
+        .work-image,
+        .education-image {
+          margin-left: 0;
+          margin-top: 8px;
+        }
+        .posts .teaser {
+          width: 120px;
+          height: 90px;
+        }
+        .txt1 { left: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        a:after { transition: none; }
+      }
+      .genai-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin: 8px 0 16px;
+      }
+      .genai-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 18px;
+        border: 2px solid #019f5b;
+        border-radius: 12px;
+        background: rgba(51, 255, 153, 0.08);
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 2px 0 rgba(51, 204, 136, 0.18);
+        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+      }
+      .genai-card:hover {
+        transform: translateY(-2px);
+        background: rgba(51, 255, 153, 0.18);
+        border-color: #1FB873;
+        box-shadow: 0 6px 18px rgba(51, 204, 136, 0.28);
+      }
+      .genai-card:after { content: none; }
+      .genai-logo {
+        width: 56px;
+        height: 56px;
+        object-fit: contain;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-    
+      .genai-title { font-weight: 700; font-size: 16px; color: #000000; }
+      .genai-desc  { font-size: 13px; color: #444; margin-top: 3px; font-weight: 500; }
+      @media (max-width: 600px) {
+        .genai-grid { grid-template-columns: 1fr; }
+      }
+    </style>
   </head>
 
   <body class="stackedit">
@@ -30,265 +221,90 @@
 
 
     <div id="main" role="main" class="container" style="margin-top: 20px;">
-      <style type="text/css">
 
-
-    body{
-        font-weight: 200;
-        font-size: 16px;
-        border-top:5px solid rgb(0, 0, 0);
-        /* border-bottom:5px solid rgb(0, 0, 0); */
-    }
-    b{
-      color:rgb(0, 0, 0);
-    }
-    .posts{
-        font-size: 14px;
-
-    }
-    .news{
-      line-height: 1.5em;
-    }
-    .post{
-      border-left: 5px solid rgb(0, 0, 0);
-    }
-    .xtitle{
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 24px;
-        margin: 10px 0;
-        color: rgb(0, 0, 0);
-        margin:0 auto;
-        width:100%;
-    }
-    
-    .posts .teaser{
-        width: 160px;
-        height: 120px;
-        float: left;
-        margin: 0 0 10px 10px;
-    }
-
-    a{
-      color: #111;
-      position: relative;
-    }
-    a:after{
-      content: '';
-      position: absolute;
-      top: 60%;
-      left: -0.1em;
-      right: -0.1em;
-      bottom: 0;
-      transition:top 200ms cubic-bezier(0, 0.8, 0.13, 1);
-      background-color: rgba(51,255,153, 0.3);
-    }
-    .emojilink:after{
-      background-color: rgba(51,255,153, 0.3) 
-    }
-    a:hover{
-      color:rgb(0, 0, 0);
-    }
-    a:hover:after{
-      color:rgb(0, 0, 0);
-      top:0%;
-    }
-    .entry{
-        position: relative;
-        top:0;
-        left: 20px;
-        margin-top: 5px;
-        margin:0 auto;
-        width:100%;
-    }
-    .txt1{
-        position: relative;
-        top:0;
-        left: -25px;
-        margin-top: 5px;
-        margin:0 auto;
-        width:100%;
-    }
-    .txtbio{
-        position: relative;
-        top:0px;
-        left: 0px;
-        margin-top: 0px;
-        margin:0 auto;
-        width:100%;
-    }
-    .txtmisc{
-        position: relative;
-        top:0;
-        left: 0px;
-        margin-top: 5px;
-        margin:0 auto;
-        width:100%;
-    }
-    .posts > .post{
-        border-bottom: 0;
-        padding-bottom:0em;
-        padding-top: 10px;
-        margin:0 auto;
-        width:100%;
-        margin-bottom: 10px;
-    }
-    .papertitle{
-        margin-top: 0px;
-        font-weight: 600;
-        font-size:16px;
-        font-style: italic;
-        margin:0 auto;
-        width:100%;
-    }
-    .entry b {
-    font-weight: 600;
-     }
-    .company-logo {
-    width: 60px;
-     height: auto;
-     margin-left: 10px;
-    vertical-align: middle;
-    }
-
-    .work-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .work-info {
-      max-width: 70%;
-    }
-
-    .work-title {
-      font-weight: bold;
-      display: block;
-    }
-
-    .work-date {
-      color: gray;
-      font-size: 14px;
-    }
-
-    .work-image {
-      flex-shrink: 0;
-      margin-left: 20px;
-    }
-
-    .work-image img {
-      width: 120px;
-      height: auto;
-    }
-
-    .education-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .education-info {
-      max-width: 70%;
-    }
-
-    .education-title {
-      font-weight: bold;
-      display: block;
-    }
-
-    .education-date {
-      color: gray;
-      font-size: 14px;
-    }
-
-    .education-image {
-      flex-shrink: 0;
-      margin-left: 20px;
-    }
-
-    .education-image img {
-      width: 80px;
-      height: auto;
-    }
-
-</style>
-
-
-<div style="display: flex; align-items: center;">
-  <img style="width: 100px; height: auto; margin-right: 20px;" src="img/portrait2.jpg">
+<div class="header-card">
+  <img class="portrait" src="img/portrait2.jpg" alt="Portrait of Boyu Zhang">
   <div>
-    <div style="font-size:24px; font-weight: 300;">Boyu Zhang（张博宇）</div>
-    <div>Researcher at SenseTime</div>
-    <font size="2">
+    <div class="name">Boyu Zhang（张博宇）</div>
+    <div>Researcher at Alibaba</div>
+    <span class="links">
       <a href="mailto:luciferboboqwq@163.com">✉️Email</a>  |  
       <a target="_blank" href="https://github.com/Luciferbobo">🚀Github</a> |  
       <a target="_blank" href="https://steamcommunity.com/id/thatbobo/">🎮Steam</a> |  
       <a target="_blank" href="https://www.linkedin.com/in/awabobo/">🧑‍💻LinkedIn</a> |  
       <a target="_blank" href="https://scholar.google.com/citations?user=0RpbcxYAAAAJ&hl=zh-CN">📖Google Scholar</a>
-    </font>   
+    </span>
   </div>
 </div>
 
 <br>
 
-<div id="Biography" class='xtitle' >Biography</div>
+<div id="Biography" class="xtitle">Biography</div>
 <div class="txt1">
   <ul class="Education" style="line-height: 2em">
     <li>
-      Hi there! I'm a researcher at <a target="_blank" href="https://www.sensetime.com/en">SenseTime</a>.
+      Hi there! I'm a researcher at <a target="_blank" href="https://www.alibabagroup.com/en-US/">Alibaba</a>.
       I received my Master’s degree from <a href="https://www.ucla.edu/" target="_blank">UCLA</a>
       and Bachelor’s from <a href="https://www.seu.edu.cn/english/" target="_blank">SEU</a>.
-      Previously, I worked at <a target="_blank" href="https://www.futurewei.com/">Futurewei</a>,
+      Previously, I worked at <a target="_blank" href="https://www.sensetime.com/en">SenseTime</a>,
+      <a target="_blank" href="https://www.futurewei.com/">Futurewei</a>,
       <a href="https://www.phigent.ai/en/" target="_blank">Phigent Robotics</a>,
       and <a target="_blank" href="https://ailab.tencent.com/ailab/en/index">Tencent AI Lab</a>.
-      My research interests include 2D&3D Computer Vision, AIGC and LLMs.
+      My research interests focus on Generative AI and Multimodal Large Language Models (MLLMs).
     </li>
   </ul>
 </div>
-<!--   <div style="text-align: justify;clear: both;">
-</div>  -->
 
-
-
-
-      
-<!--  <div id="News" class='xtitle'  >News</div>  -->
-<div class="txt1">
-  <ul class="news" style="line-height: 2em">
-    <!--
-    <li>🎉 1 paper is accepted by <b>AAAI 2025</b>. Click <a target="_blank" href="https://github.com/Luciferbobo/DetRF">here</a> to see our works. <div style="float: right;">2024.12 </div> </li>
-    <li>🧑‍💻 I'm excited to start my new role as a Researcher at Sensetime! <div style="float: right;">2024.11 </div>  </li>
-    -->
-    <!--
-    <li>🧑‍💻 I'm excited to start my new role as a Research Intern at Futurewei! <div style="float: right;">2024.03 </div> </li>
-    -->
-    <!--
-    <li>🎉 1 paper is accepted by <b>AAAI 2024</b>. Click <a target="_blank" href="https://thatbobo.com/SSR.github.io/">here</a> to see our works. <div style="float: right;">2023.12 </div> </li>
-    -->
-    <!--
-    <li>🎓 Excited to start my master journey at UCLA! <div style="float: right;">2023.08 </div> </li>
-    -->
-  </ul>
+<div id="GenAI" class="xtitle">✨ Make Gen AI great again!</div>
+<div class="genai-grid">
+  <a class="genai-card" target="_blank" href="https://senseavatar.sensetime.com/">
+    <img class="genai-logo" src="img/senseavatar.svg" alt="SenseAvatar Logo" loading="lazy" decoding="async">
+    <div class="genai-info">
+      <div class="genai-title">SenseAvatar</div>
+      <div class="genai-desc">Digital human video generation platform</div>
+    </div>
+  </a>
+  <a class="genai-card" target="_blank" href="https://happyhorse.cn/">
+    <img class="genai-logo" src="img/happyhorse.png" alt="HappyHorse Logo" loading="lazy" decoding="async">
+    <div class="genai-info">
+      <div class="genai-title">HappyHorse</div>
+      <div class="genai-desc">Video generation foundation model</div>
+    </div>
+  </a>
 </div>
 
-
-<div id="Work-Experience" class='xtitle'>Work Experience</div>
+<div id="Work-Experience" class="xtitle">Work Experience</div>
 <div class="txt1">
   <ul class="Work" style="line-height: 2em">
 
     <li>
       <div class="work-item">
         <div class="work-info">
+          <span class="work-title">Senior Research Engineer</span>
+          <span class="work-date">2025.03 - Now</span>
+          <br>
+          <a target="_blank" href="https://www.alibabagroup.com/en-US/">Alibaba</a>
+          <br>
+          Taotian Group | Video Generation Foundation Model
+        </div>
+        <div class="work-image">
+          <img class="company-logo" src="img/alibaba_group_logo_english_2.png" alt="Alibaba Logo" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="work-item">
+        <div class="work-info">
           <span class="work-title">Research Scientist</span>
-          <span class="work-date">2024.11 - Now</span>
+          <span class="work-date">2024.12 - 2025.03</span>
           <br>
           <a target="_blank" href="https://www.sensetime.com/en">SenseTime</a>
           <br>
-          SenseTime Research | MLLM, Video Generation, 2D Avatar
+          SenseTime Research | MLLMs, 2D Digital Human
         </div>
         <div class="work-image">
-          <img class="company-logo" src="img/sensetime.png" alt="SenseTime Logo">
+          <img class="company-logo" src="img/sensetime.png" alt="SenseTime Logo" loading="lazy" decoding="async">
         </div>
       </div>
     </li>
@@ -304,7 +320,7 @@
           FSD Group | NeRF, Autonomous-driving
         </div>
         <div class="work-image">
-          <img class="company-logo" src="img/phigent.png" alt="Phigent Robotics Logo">
+          <img class="company-logo" src="img/phigent.png" alt="Phigent Robotics Logo" loading="lazy" decoding="async">
         </div>
       </div>
     </li>
@@ -312,7 +328,7 @@
   </ul>
 </div>
 
-<div id="Internship-Experience" class='xtitle'>Internship Experience</div>
+<div id="Internship-Experience" class="xtitle">Internship Experience</div>
 <div class="txt1">
   <ul class="Work" style="line-height: 2em">
 
@@ -324,10 +340,10 @@
           <br>
           <a target="_blank" href="https://futurewei.com/">Futurewei</a>
           <br>
-          NNMC Group | 3D Generation
+          NNMC Group | 3D Gaussian Splatting
         </div>
         <div class="work-image">
-          <img class="company-logo" src="img/futurewei.png" alt="Futurewei Logo">
+          <img class="company-logo" src="img/futurewei.png" alt="Futurewei Logo" loading="lazy" decoding="async">
         </div>
       </div>
     </li>
@@ -343,15 +359,15 @@
           AI Lab | Rendering, Super-Resolution
         </div>
         <div class="work-image">
-          <img class="company-logo" src="img/tencent2.svg" alt="Tencent AI Lab Logo">
+          <img class="company-logo" src="img/tencent2.svg" alt="Tencent AI Lab Logo" loading="lazy" decoding="async">
         </div>
       </div>
     </li>
 
   </ul>
 </div>
-      
-<div id="Education" class='xtitle'>Education</div>
+
+<div id="Education" class="xtitle">Education</div>
 <div class="txt1">
   <ul class="Education" style="line-height: 2em">
 
@@ -364,7 +380,7 @@
           <a target="_blank" href="https://www.ucla.edu/">University of California, Los Angeles (UCLA)</a>
         </div>
         <div class="education-image">
-          <img class="institution-logo" src="img/ucla.jpg" alt="UCLA Logo">
+          <img class="institution-logo" src="img/ucla.jpg" alt="UCLA Logo" loading="lazy" decoding="async">
         </div>
       </div>
     </li>
@@ -378,112 +394,84 @@
           <a target="_blank" href="https://www.seu.edu.cn/english/">Southeast University (SEU)</a>
         </div>
         <div class="education-image">
-          <img class="institution-logo" src="img/SEU.png" alt="SEU Logo">
+          <img class="institution-logo" src="img/SEU.png" alt="SEU Logo" loading="lazy" decoding="async">
         </div>
       </div>
     </li>
 
   </ul>
 </div>
-      
 
-<div id="Research" class='xtitle' > Research <span style="color:#333;font-size: 14px; font-family: Helvetica, Arial, sans-serif; "> </span> </div> 
+<div id="Research" class="xtitle">Research</div>
 <br>
 
 <div class="posts">
 
 
     <article class="post">
-      <img class= "teaser" src="img/S21.gif">
-      <div class= "papertitle entry" >Detachable Novel Views Synthesis of Dynamic Scenes Using Distribution-Driven Neural Radiance Fields</div>
-<div class="entry">
-
-</div>
+      <img class="teaser" src="img/S21.gif" alt="DetRF teaser" loading="lazy" decoding="async">
+      <div class="papertitle entry">Detachable Novel Views Synthesis of Dynamic Scenes Using Distribution-Driven Neural Radiance Fields</div>
       <div class="entry">
-        <b>Boyu Zhang</b>, Wenbo Xu, <a target="_blank" href="http://www.zhengzhu.net/">Zheng Zhu</a>, Guan Huang. 
+        <b>Boyu Zhang</b>, Wenbo Xu, <a target="_blank" href="http://www.zhengzhu.net/">Zheng Zhu</a>, Guan Huang.
       </div>
-
       <div class="entry">
-          <i>Association for the Advancement of Artificial Intelligence (<b>AAAI</b>)</i>, <i>2025</i>
+        <i>Association for the Advancement of Artificial Intelligence (<b>AAAI</b>)</i>, <i>2025</i>
       </div>
-
       <div class="entry">
-        <a class='links' target="_blank" href="https://arxiv.org/abs/2301.00411" rel="paperurl">arXiv</a> 
+        <a class="links" target="_blank" href="https://arxiv.org/abs/2301.00411" rel="paperurl">arXiv</a>
         /
         <a target="_blank" href="https://github.com/Luciferbobo/DetRF">Github</a>
-        </div>
-      <div style ="clear:both"></div>
+      </div>
+      <div style="clear:both"></div>
     </article>
 
-
-
     <article class="post">
-      <img class= "teaser" src="img/R2.jpg">
-      <div class= "papertitle entry" >High-Quality Real-Time Rendering Using Subpixel Sampling Reconstruction</div>
-<div class="entry">
-
-</div>
+      <img class="teaser" src="img/R2.jpg" alt="SSR teaser" loading="lazy" decoding="async">
+      <div class="papertitle entry">High-Quality Real-Time Rendering Using Subpixel Sampling Reconstruction</div>
       <div class="entry">
-        <b>Boyu Zhang</b>, Hongliang Yuan, Mingyan Zhu, <a target="_blank" href="http://staff.ustc.edu.cn/~lgliu/">Ligang Liu</a>, <a target="_blank" href="https://juewang725.github.io/">Jue Wang</a>. 
+        <b>Boyu Zhang</b>, Hongliang Yuan, Mingyan Zhu, <a target="_blank" href="http://staff.ustc.edu.cn/~lgliu/">Ligang Liu</a>, <a target="_blank" href="https://juewang725.github.io/">Jue Wang</a>.
       </div>
-      
       <div class="entry">
-          <i>Association for the Advancement of Artificial Intelligence (<b>AAAI</b>)</i>, <i>2024</i>  
+        <i>Association for the Advancement of Artificial Intelligence (<b>AAAI</b>)</i>, <i>2024</i>
       </div>
-      
       <div class="entry">
-        <a class='links' target="_blank" href="https://arxiv.org/abs/2301.01036" rel="paperurl">arXiv</a>
+        <a class="links" target="_blank" href="https://arxiv.org/abs/2301.01036" rel="paperurl">arXiv</a>
         /
         <a target="_blank" href="https://thatbobo.com/SSR.github.io/">Project Page</a>
         /
         <a target="_blank" href="https://github.com/Luciferbobo/SSR">Github</a>
-        </div>
-      <div style ="clear:both"></div>
+      </div>
+      <div style="clear:both"></div>
     </article>
 
-
-
     <article class="post">
-
-      <img class= "teaser" src="img/R3.gif"> 
-
-      <div class= "papertitle entry" >Auto-Encoding Score Distribution Regression for Action Quality Assessment</div>
-<div class="entry">
-
-</div>
+      <img class="teaser" src="img/R3.gif" alt="DAE-AQA teaser" loading="lazy" decoding="async">
+      <div class="papertitle entry">Auto-Encoding Score Distribution Regression for Action Quality Assessment</div>
       <div class="entry">
-        <b>Boyu Zhang</b>, Jiayuan Chen, <a target="_blank" href="https://sites.google.com/site/yinfeixu1986/home">Yinfei Xu</a>, Hui Zhang, <a target="_blank" href="https://yangxuntu.github.io/">Xu Yang</a>, <a target="_blank" href="http://palm.seu.edu.cn/xgeng/">Xin Geng</a>. 
+        <b>Boyu Zhang</b>, Jiayuan Chen, <a target="_blank" href="https://sites.google.com/site/yinfeixu1986/home">Yinfei Xu</a>, Hui Zhang, <a target="_blank" href="https://yangxuntu.github.io/">Xu Yang</a>, <a target="_blank" href="http://palm.seu.edu.cn/xgeng/">Xin Geng</a>.
       </div>
-
       <div class="entry">
-          <i>Neural Computing & Applications (<b>NCAA</b>)</i>, <i>2022</i>  
+        <i>Neural Computing & Applications (<b>NCAA</b>)</i>, <i>2022</i>
       </div>
-
       <div class="entry">
-        <a class='links' target="_blank" href="https://arxiv.org/abs/2111.11029" rel="paperurl">arXiv</a>     
+        <a class="links" target="_blank" href="https://arxiv.org/abs/2111.11029" rel="paperurl">arXiv</a>
         /
         <a target="_blank" href="https://github.com/InfoX-SEU/DAE-AQA">Github</a>
-        </div>
-
-      <div style ="clear:both"></div>
-
+      </div>
+      <div style="clear:both"></div>
     </article>
 </div>
 
 <br>
 
-<div id="Side-Games" class="xtitle">
-  Side Games
-  <span style="color: #333; font-size: 14px; font-family: Helvetica, Arial, sans-serif;"></span>
-</div>
+<div id="Side-Games" class="xtitle">Side Games</div>
 
 <br>
 
 <div class="posts">
 
-  <!-- Get SEU -->
   <article class="post">
-    <img class="teaser" src="img/G3.jpg" alt="Get SEU">
+    <img class="teaser" src="img/G3.jpg" alt="Get SEU" loading="lazy" decoding="async">
     <div class="papertitle entry">Get SEU!</div>
     <div class="entry">
     • Combine identical universities to create an even bigger one.
@@ -498,10 +486,9 @@
     </div>
     <div style="clear: both;"></div>
   </article>
-  
-<!-- Playing Flappybird with DQN -->
+
   <article class="post">
-    <img class="teaser" src="img/G2.gif" alt="Playing Flappybird with DQN">
+    <img class="teaser" src="img/G2.gif" alt="Playing Flappybird with DQN" loading="lazy" decoding="async">
     <div class="papertitle entry">Playing Flappybird with DQN</div>
     <div class="entry">
     • Play Flappybird with AI.
@@ -515,53 +502,34 @@
     <div style="clear: both;"></div>
   </article>
 
-  <!-- Car -->
   <article class="post">
-    <img class="teaser" src="img/cargame2.gif" alt="Racing Car Game" style="width: 160px; height: 100px;">
+    <img class="teaser" src="img/cargame2.gif" alt="Racing Car Game" style="width: 160px; height: 100px;" loading="lazy" decoding="async">
     <div class="papertitle entry">Unity3D Racing Game</div>
-
-        <div class="entry">
-        • Vehicle dynamics: Rigidbody is used for simulating physical interactions.
-        </div>
-        <div class="entry">
-        • Tire model: Pacejka simulates tire friction, traction, and steering response.
-        </div>
-        <div class="entry">
-        • AI pathfinding algorithms: A*/NavMesh
-         </div>
-
+    <div class="entry">
+      • Vehicle dynamics: Rigidbody is used for simulating physical interactions.
+    </div>
+    <div class="entry">
+      • AI pathfinding algorithms: A*/NavMesh
+    </div>
     <div class="entry">
       <a target="_blank" href="https://github.com/Luciferbobo/NFS">Github</a>
     </div>
     <div style="clear: both;"></div>
   </article>
 
-
 </div>
 
-
-
-
-<div id="Misc" class='xtitle' > Misc</div>
+<div id="Misc" class="xtitle">Misc</div>
 <div class="txtmisc">
-<ul style='list-style: none;line-height: 2em;padding-left: 0;'>
-<!--
-<li>🌟 &nbsp;&nbsp;I'm looking for PhD opportunity.</li>
--->
-<li>🎮 &nbsp;&nbsp;Love palying 3A games. <s>Stay active on Steam.</s> (occasionally swamped with work.) </li>
-
-<li>🎨 &nbsp;&nbsp;Tech otaku. ヾ(≧▽≦*)o Avid fan of anime and manga. qwq </li>
-
-<li>📝 &nbsp;&nbsp;Years ago, I wrote tech <a target="_blank" href="https://blog.csdn.net/weixin_45435206">blogs</a>, racked up 90k+ views and 800+ stars. </li>
-
-<li>🌎 &nbsp;&nbsp;On my way exploring the world—visited countries so far: <a target="_blank" href="https://earth.google.com/earth/d/1I-zfgAQC5i6eCkaWGlTlrC9sHtKZ7pxI?usp=sharing">19</a>. </li>
-
-
-</ul>
-</ul>
-</div>
+  <ul style="list-style: none; line-height: 2em; padding-left: 0;">
+    <li>🎮 &nbsp;&nbsp;Love palying 3A games. <s>Stay active on Steam.</s> (occasionally swamped with work.) </li>
+    <li>🎨 &nbsp;&nbsp;Tech otaku. ヾ(≧▽≦*)o Avid fan of anime and manga. qwq </li>
+    <li>📝 &nbsp;&nbsp;Years ago, I wrote tech <a target="_blank" href="https://blog.csdn.net/weixin_45435206">blogs</a>, racked up 90k+ views and 800+ stars. </li>
+    <li>🌎 &nbsp;&nbsp;On my way exploring the world—visited countries so far: <a target="_blank" href="https://earth.google.com/earth/d/1I-zfgAQC5i6eCkaWGlTlrC9sHtKZ7pxI?usp=sharing">19</a>. </li>
+  </ul>
 </div>
 
+    </div>
   </div>
   </body>
 </html>
